@@ -9,8 +9,8 @@
     <string name="testLogout">ログアウト</string>
     <string name="title_activity_menu">MenuActivity</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_talk">Talk</string>
+    <string name="title_setting">Settings</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
