@@ -1,0 +1,32 @@
+package xyz.ryujpn.mymessenger
+
+import android.content.Context
+import android.os.Bundle
+import android.support.v4.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+
+
+class TalkFragment : Fragment() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+        return inflater!!.inflate(R.layout.fragment_talk, container, false)
+    }
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+    }
+    override fun onDetach() {
+        super.onDetach()
+    }
+    companion object {
+        fun newInstance(): HomeFragment {
+            val fragment = HomeFragment()
+            return fragment
+        }
+    }
+}
