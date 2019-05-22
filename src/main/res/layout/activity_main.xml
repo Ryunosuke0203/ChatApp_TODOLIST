@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/baseColor"
+        android:background="@color/colorPrimaryDark"
         tools:context=".MainActivity">
 
     <Button
@@ -34,10 +34,11 @@
             android:id="@+id/emailEditText"
             android:autofillHints=""
             android:contentDescription="@string/e_mail"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="24dp"
             app:layout_constraintBottom_toTopOf="@+id/passEditText"
             app:layout_constraintEnd_toEndOf="@+id/passEditText"
-            app:layout_constraintStart_toStartOf="@+id/passEditText" android:hint="e-mail"/>
+            app:layout_constraintStart_toStartOf="@+id/passEditText" android:hint="@string/hint_mail"
+            app:layout_constraintHorizontal_bias="1.0"/>
     <EditText
             android:background="@drawable/curve_form"
             android:layout_width="260dp"
@@ -48,10 +49,12 @@
             android:autofillHints=""
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:contentDescription="@string/password"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.503" app:layout_constraintVertical_bias="0.48000002"
-            android:hint="Password"/>
+            app:layout_constraintTop_toTopOf="parent"
+            android:hint="@string/hint_pass" app:layout_constraintHorizontal_bias="0.503"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/guideline"
+            android:layout_marginTop="32dp" app:layout_constraintVertical_bias="0.90999997"/>
     <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                          android:id="@+id/guideline" app:layout_constraintGuide_begin="401dp"
-                                          android:orientation="horizontal"/>
+                                          android:id="@+id/guideline"
+                                          android:orientation="horizontal"
+                                          app:layout_constraintGuide_begin="505dp"/>
 </android.support.constraint.ConstraintLayout>

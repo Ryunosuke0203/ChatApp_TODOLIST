@@ -50,6 +50,11 @@ class MainActivity : AppCompatActivity() {
                             ).show()
                             login()
                         } else {
+                            if(passText.isEmpty() || passText.length < 6){
+                                passEditText.error = "Passを入力してください"
+                            }
+                            if(emailText.isEmpty())
+
                             Toast.makeText(
                                 baseContext, "SignUp 失敗",
                                 Toast.LENGTH_SHORT
@@ -74,10 +79,10 @@ class MainActivity : AppCompatActivity() {
             val passEditText = findViewById<EditText>(R.id.passEditText)
             val passText = passEditText.text.toString()
             if (passText.isEmpty()) {
-                passEditText.error = "Passを入力してください"
+                passEditText.error = "6文字以上のPassを入力してください"
                 isValid = false
             }
-            if(isValid) {
+            if(isValid || passText.length < 6) {
                 auth.signInWithEmailAndPassword(emailText, passText)
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
@@ -102,7 +107,7 @@ class MainActivity : AppCompatActivity() {
     public override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
+//        val currentUser = auth.currentUser
 //        updateUI(currentUser)
     }
 
@@ -112,5 +117,7 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra("user_name", user?.email)
         startActivity(intent)
     }
+
+
 
 }

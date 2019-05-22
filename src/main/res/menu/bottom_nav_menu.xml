@@ -9,6 +9,12 @@
 
     <item
             android:color="@android:color/holo_blue_light"
+            android:id="@+id/navigation_search"
+            android:icon="@drawable/ic_search_black_24dp"
+            android:title="@string/title_search"/>
+
+    <item
+            android:color="@android:color/holo_blue_light"
             android:id="@+id/navigation_talk"
             android:icon="@drawable/ic_people_black_24dp"
             android:title="@string/title_talk"/>
