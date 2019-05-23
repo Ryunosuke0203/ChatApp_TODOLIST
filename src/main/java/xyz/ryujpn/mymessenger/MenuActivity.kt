@@ -53,7 +53,7 @@ class MenuActivity : AppCompatActivity(){
 
        navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
     }
-    fun setActionBarTitle(title: String){
-
-    }
+//    fun setActionBarTitle(title: String){
+//
+//    }
 }

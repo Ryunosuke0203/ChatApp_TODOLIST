@@ -9,12 +9,28 @@
     <string name="testLogout">ログアウト</string>
     <string name="title_activity_menu">MenuActivity</string>
     <string name="title_home">Home</string>
-    <string name="title_talk">Talk</string>
-    <string name="title_setting">Settings</string>
-    <string name="title_search">Search</string>
+    <string name="title_talk">Talk(準備中)</string>
+    <string name="title_setting">Settings(準備中)</string>
+    <string name="title_search">Search(準備中)</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hint_pass">password</string>
     <string name="hint_mail">e-mail</string>
+    <string name="title_activity_drawer_main">DrawerMainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">ホーム</string>
+    <string name="menu_gallery">自分のTodoリスト</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">シェア(準備中)</string>
+    <string name="menu_send">送る(準備中)</string>
+    <string name="home_action">ホーム</string>
+    <string name="mylistactivity">MyToDoList</string>
 </resources>

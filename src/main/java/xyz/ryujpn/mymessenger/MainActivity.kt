@@ -113,7 +113,7 @@ class MainActivity : AppCompatActivity() {
 
     fun login(){
         val user = auth.currentUser
-        val intent = Intent(this,MenuActivity::class.java)
+        val intent = Intent(this,DrawerMainActivity::class.java)
         intent.putExtra("user_name", user?.email)
         startActivity(intent)
     }

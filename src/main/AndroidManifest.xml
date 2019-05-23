@@ -9,12 +9,23 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppRegister">
+        <activity android:name=".NewpostActivity">
+        </activity>
+        <activity
+                android:name=".DrawerMainActivity"
+                android:label="@string/title_activity_drawer_main"
+                android:theme="@style/Newpost">
+        </activity>
         <activity
                 android:name=".MenuActivity"
-                android:theme="@style/AppTheme"
-                android:label="@string/title_activity_menu">
+                android:label="@string/home_action"
+                android:theme="@style/AppTheme">
         </activity>
-        <activity android:name=".TestActivity">
+        <activity
+                android:name=".MyListActivity"
+                android:label="@string/mylistactivity"
+                android:parentActivityName=".DrawerMainActivity"
+                android:theme="@style/AppTheme">
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
