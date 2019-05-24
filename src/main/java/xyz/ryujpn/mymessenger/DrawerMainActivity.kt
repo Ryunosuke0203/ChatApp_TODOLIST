@@ -72,6 +72,7 @@ class DrawerMainActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
 
 
         drawView.setNavigationItemSelectedListener(this)
+
     }
 
     override fun onBackPressed() {
@@ -124,8 +125,11 @@ class DrawerMainActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                 R.id.nav_share -> {
 
                 }
-                R.id.nav_send -> {
-
+                R.id.nav_talk -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.frameLayout, TalkFragment())
+                        .commit()
+                    supportActionBar!!.setTitle("トーク")
                 }
             }
 

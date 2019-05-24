@@ -7,28 +7,35 @@
         <item
                 android:id="@+id/navigation_home"
                 android:icon="@drawable/ic_home_black_24dp"
-                android:title="@string/title_home"/>
+                android:title="@string/drawer_title_home"/>
         <item
                 android:id="@+id/mytodolist"
                 android:icon="@drawable/ic_format_list_bulleted_black_24dp"
-                android:title="@string/menu_gallery"/>
+                android:title="@string/drawer_menu_list"/>
 
-        <item
-                android:id="@+id/navigation_setting"
-                android:icon="@drawable/ic_settings_black_24dp"
-                android:title="@string/title_setting"/>
+
     </group>
 
     <item android:title="Communicate">
         <menu>
             <item
+                    android:id="@+id/nav_talk"
+                    android:icon="@drawable/ic_people_black_24dp"
+                    android:title="@string/drawer_menu_talk"/>
+
+            <item
                     android:id="@+id/nav_share"
                     android:icon="@drawable/ic_menu_share"
                     android:title="@string/menu_share"/>
+
+        </menu>
+    </item>
+    <item android:title="Settings">
+        <menu>
             <item
-                    android:id="@+id/nav_send"
-                    android:icon="@drawable/ic_menu_send"
-                    android:title="@string/menu_send"/>
+                    android:id="@+id/navigation_setting"
+                    android:icon="@drawable/ic_settings_black_24dp"
+                    android:title="@string/drawer_title_setting"/>
         </menu>
     </item>
 

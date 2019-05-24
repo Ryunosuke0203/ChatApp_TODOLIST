@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
                 isValid = false
             }
             if(isValid || passText.length < 6) {
-                auth.signInWithEmailAndPassword(emailText, passText)
+                auth?.signInWithEmailAndPassword(emailText, passText)
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
                             Toast.makeText(
@@ -96,6 +96,7 @@ class MainActivity : AppCompatActivity() {
                                 baseContext, "Login 失敗",
                                 Toast.LENGTH_SHORT
                             ).show()
+                            passEditText.error = "6文字以上のPassを入力してください"
                         }
 
                         // ...

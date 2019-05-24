@@ -10,7 +10,7 @@
     <string name="title_activity_menu">MenuActivity</string>
     <string name="title_home">Home</string>
     <string name="title_talk">Talk(準備中)</string>
-    <string name="title_setting">Settings(準備中)</string>
+    <string name="title_setting">設定(準備中)</string>
     <string name="title_search">Search(準備中)</string>
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -23,14 +23,22 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">設定</string>
 
     <string name="menu_home">ホーム</string>
-    <string name="menu_gallery">自分のTodoリスト</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_tools">Tools</string>
-    <string name="menu_share">シェア(準備中)</string>
-    <string name="menu_send">送る(準備中)</string>
+
     <string name="home_action">ホーム</string>
     <string name="mylistactivity">MyToDoList</string>
+
+
+    <string name="drawer_title_home">ホーム</string>
+    <string name="drawer_menu_list">自分のTodoリスト</string>
+    <string name="drawer_title_setting">設定(準備中)</string>
+    <string name="menu_share">シェア(準備中)</string>
+    <string name="menu_send">送る(準備中)</string>
+    <string name="drawer_menu_talk">トーク(準備中)</string>
+    <string name="task_name">タスク名</string>
+    <string name="drawer_title_newpost">新規ToDo</string>
+    <string name="add_checkbox">追加</string>
+    <string name="finish_newpost">投稿</string>
 </resources>

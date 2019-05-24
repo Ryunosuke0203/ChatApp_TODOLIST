@@ -1,12 +1,17 @@
 package xyz.ryujpn.mymessenger.Fragment
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.fragment_home.*
+import xyz.ryujpn.mymessenger.NewpostActivity
 import xyz.ryujpn.mymessenger.R
+
 
 class HomeFragment : Fragment() {
 
@@ -14,20 +19,35 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        fab_item.setOnClickListener {
-//
-//        }
+
+
+
+
+
+        //Snackbar.make(view, "新しいTodoリストを作成しよう！", Snackbar.LENGTH_LONG).show()
+
+
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-
 
         return inflater.inflate(R.layout.fragment_home, container, false)
 
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+    }
+
     override fun onResume() {
         super.onResume()
+        fab_item.setOnClickListener { view ->
+            val intent= Intent(activity, NewpostActivity::class.java)
+            Snackbar.make(view, "新しいTodoリストを作成しよう！", Snackbar.LENGTH_LONG).show()
+            startActivity(intent)
+
+        }
 
     }
 
