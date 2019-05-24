@@ -1,29 +1,34 @@
 package xyz.ryujpn.mymessenger
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.TextUtils
+import android.widget.Button
+import android.widget.EditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.activity_menu.*
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_newpost.*
 import xyz.ryujpn.mymessenger.Adapter.RecyclerAdapter
 
 class NewpostActivity : AppCompatActivity() {
     var auth: FirebaseAuth? = null
-    var recyclerList: MutableList<String>? = null
+    var recyclerList: ArrayList<PostToDo>? = null
     //
-    private lateinit var database: DatabaseReference
+    private var database = FirebaseDatabase.getInstance()
+    private var reference: DatabaseReference = database.getReference()
     private var user: FirebaseUser? = null
     private var uid: String? = null
     private lateinit var mRecyclerView: RecyclerView
 
-
+    private lateinit  var titleEditText: EditText
+    private lateinit var mm: ArrayList<ToDoData>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,92 +37,75 @@ class NewpostActivity : AppCompatActivity() {
 
         user = FirebaseAuth.getInstance().currentUser
         uid = user?.uid
-        database =  FirebaseDatabase.getInstance().reference
+        titleEditText = findViewById(R.id.taskName)
 
-        val adater = RecyclerAdapter(ArrayList(),this)
+
+        mm = ArrayList()
+        val adater = RecyclerAdapter(mm,this)
 
         mRecyclerView = findViewById(R.id.checkboxRecyclerView)
         checkboxRecyclerView.layoutManager = LinearLayoutManager(this)
-//        mCustomAdapter = NewpostAdapter(NewpostActivity(),ArrayList())
-//        mRecyclerView.adapter = mCustomAdapter
 
-        addCheckbox.setOnClickListener {
+
+        addCheckbox.setOnClickListener {view ->
             if( !TextUtils.isEmpty(todoName.text.toString())){
                 val task = ToDoData(title = todoName.text.toString())
+                val ss = todoName.text.toString()
                 adater.addItem(task)
+                Snackbar.make(view,"追加しました！",Snackbar.LENGTH_SHORT).show()
             }else{
 
-                Snackbar.make(container,"Task is Empty",Snackbar.LENGTH_SHORT)
+                Snackbar.make(view,"todoを入力してください",Snackbar.LENGTH_SHORT).show()
             }
-
             todoName.setText("")
         }
 
         mRecyclerView.adapter = adater
+        val postButton: Button = findViewById(R.id.finished_newpost)
+        postButton.setOnClickListener {
 
+            //＋で追加したリストを保存する
 
+            val intent = Intent(this,MyListActivity::class.java)
 
-//        val addCheckButton: Button = findViewById(R.id.addCheckbox)
-//        checkboxRecyclerView.layoutManager = LinearLayoutManager(this)
-//        addCheckButton.setOnClickListener { view->
-//            Snackbar.make(view, "Todoを追加しよう！", Snackbar.LENGTH_LONG).show()
-//            // taskListに要素を格納
-//            val dialog = AlertDialog.Builder(this)
-//            val v =layoutInflater.inflate(R.layout.dialog,null)
-//            val taskN = v.findViewById<EditText>(R.id.ev_todo)
-//            dialog.setView(v)
-//            dialog.setPositiveButton("Todoを追加") { _: DialogInterface, _: Int ->
-//                if (taskN.text.isNotEmpty()) {
-//                    val item = Listitem()
-//
-//                    item.taskList?.add(taskN.text.toString())
-//                    item.registerTime = Date()
-//                    item.userId = auth.currentUser!!.uid
-//                    refreshList()
-//                }
-//            }
-//            dialog.setNegativeButton("やめる") { _: DialogInterface, _: Int ->
-//
-//            }
-//            dialog.show()
-//        }
-//        val postButton: Button = findViewById(R.id.finished_newpost)
-//        postButton.setOnClickListener {
-//            val intent = Intent(this,MyListActivity::class.java)
-//            startActivity(intent)
-//            val item = Listitem()
-//            val v =layoutInflater.inflate(R.layout.dialog,null)
-//            val taskN = v.findViewById<EditText>(R.id.taskName)
-//            item.taskName = taskN.text.toString()
-//            refreshList()
-//        }
-//    }
-//
-//    private fun refreshList(){
-//        recyclerList = Listitem().taskList
-//        newpostAdapter = NewpostAdapter(this,recyclerList!!)
-//        checkboxRecyclerView.adapter = newpostAdapter
+            startActivity(intent)
+
+        }
+
 
     }
 
-}
-//class NewpostAdapter(val nowActivity: ArrayList<Any>, val recyclerlist: NewpostActivity) :
-//        RecyclerView.Adapter<NewpostAdapter.NewpostViewHolder>(){
-//
-//    override fun onCreateViewHolder(p0: ViewGroup, p1: Int):
-//            NewpostViewHolder {
-//       return NewpostViewHolder(LayoutInflater.from(nowActivity).inflate(R.layout.check_task_child,p0,false))
-//    }
-//
-//    override fun getItemCount(): Int {
-//        return recyclerlist.size
-//    }
-//
-//    override fun onBindViewHolder(p0: NewpostViewHolder, p1: Int) {
-//        p0.checkbox.text = recyclerlist[p1].
-//    }
-//
-//    class NewpostViewHolder(view: View) : RecyclerView.ViewHolder(view){
-//        val checkbox = view.findViewById<CheckBox>(R.id.checkbox_todo)
-//    }
-//}
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        val postButton: Button = findViewById(R.id.finished_newpost)
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val db = FirebaseFirestore.getInstance()
+        var todoname: String = todoName.text.toString()
+        val post = PostToDo(taskName.text.toString())
+        val data = HashMap<String, PostToDo>()
+        data.put(todoname,post)
+        db.collection("post").add(data)
+            .addOnSuccessListener{
+                // 保存成功
+            }.addOnFailureListener{view ->
+                // 保存失敗
+            }
+
+    }
+    fun save(){
+        var todoname: String = todoName.text.toString()
+
+        var postToDo = PostToDo(todoname)
+
+        reference.child("post").child(todoname).setValue(postToDo)
+            .addOnSuccessListener {
+                finish()
+            }
+        }
+
+
+    }

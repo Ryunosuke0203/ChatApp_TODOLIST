@@ -14,7 +14,7 @@ import xyz.ryujpn.mymessenger.R
 import xyz.ryujpn.mymessenger.ToDoData
 
 class RecyclerAdapter(
-    private val mItems:   ArrayList<ToDoData>,
+    val mItems:   ArrayList<ToDoData>,
     private val mContext: Context
 ): RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
