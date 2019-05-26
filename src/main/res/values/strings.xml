@@ -2,10 +2,10 @@
     <string name="app_name">MyMessenger</string>
     <string name="login_guest">ゲストでログイン</string>
     <string name="username">%$1%</string>
-    <string name="e_mail">E-mail</string>
-    <string name="password">Pass</string>
-    <string name="signup">Sign up</string>
-    <string name="login">Login</string>
+    <string name="e_mail">メールアドレス</string>
+    <string name="password">パスワード</string>
+    <string name="signup">登録</string>
+    <string name="login">ログイン</string>
     <string name="testLogout">ログアウト</string>
     <string name="title_activity_menu">MenuActivity</string>
     <string name="title_home">Home</string>
@@ -41,4 +41,15 @@
     <string name="drawer_title_newpost">新規ToDo</string>
     <string name="add_checkbox">追加</string>
     <string name="finish_newpost">投稿</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="signup_login_intent">アカウントをお持ちの方はこちら</string>
+    <string name="login_signup_intent">新規登録の方はこちら</string>
 </resources>

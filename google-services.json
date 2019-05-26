@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "995626215763-pf74bkd6fgjadsobvsfmb4o0rhibv6hr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "xyz.ryujpn.mymessenger",
+            "certificate_hash": "99d77f08963a7e580e9346551e4be3124e8767ed"
+          }
+        },
+        {
           "client_id": "995626215763-afsth1ae0obs7j4318u7etqa9n2vg1up.apps.googleusercontent.com",
           "client_type": 3
         }
