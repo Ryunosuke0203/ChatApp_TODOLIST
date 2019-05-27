@@ -21,13 +21,13 @@
             app:layout_constraintStart_toStartOf="@+id/passEditText" android:textSize="14sp"/>
 
     <EditText
+            android:id="@+id/emailEditText"
+            android:inputType="textEmailAddress"
             android:background="@drawable/curve_form"
             android:layout_width="260dp"
             android:layout_height="40dp"
-            android:inputType="textEmailAddress"
             android:ems="10"
-            android:id="@+id/emailEditText"
-            android:autofillHints=""
+
             android:contentDescription="@string/e_mail"
             android:layout_marginBottom="24dp"
             app:layout_constraintBottom_toTopOf="@+id/passEditText"
@@ -35,13 +35,13 @@
             app:layout_constraintStart_toStartOf="@+id/passEditText" android:hint="@string/hint_mail"
             app:layout_constraintHorizontal_bias="1.0"/>
     <EditText
+            android:id="@+id/passEditText"
             android:background="@drawable/curve_form"
             android:layout_width="260dp"
             android:layout_height="40dp"
             android:inputType="textPassword"
             android:ems="10"
-            android:id="@+id/passEditText"
-            android:autofillHints=""
+
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:contentDescription="@string/password"
             app:layout_constraintTop_toTopOf="parent"
@@ -55,7 +55,7 @@
             android:layout_height="40dp"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/nameregister"
+            android:id="@+id/nameEditText"
             android:autofillHints="name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -66,7 +66,7 @@
     <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
                                           android:id="@+id/guideline"
                                           android:orientation="horizontal"
-                                          app:layout_constraintGuide_begin="510dp"/>
+                                          app:layout_constraintGuide_end="204dp"/>
     <Button
             android:text="@string/signup_login_intent"
             android:layout_width="wrap_content"
@@ -78,16 +78,28 @@
             android:textColor="@color/common_google_signin_btn_text_dark_default" android:textSize="10sp"
             style="@style/Widget.AppCompat.Button.Borderless" app:layout_constraintHorizontal_bias="0.497"/>
     <Button
+            android:id="@+id/photobutton"
             android:text="画像を選択"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:textSize="12sp"
             android:textColor="@color/cardview_light_background"
-            app:layout_constraintStart_toStartOf="@+id/nameregister"
+            app:layout_constraintStart_toStartOf="@+id/nameEditText"
             android:background="@drawable/rounded_select_photo"
-            android:id="@+id/photobutton" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/nameregister" android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/nameEditText" android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.874"
             android:layout_marginStart="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/nameregister"/>
+            app:layout_constraintEnd_toEndOf="@+id/nameEditText"/>
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView"
+            app:civ_border_width="4dp"
+            app:civ_border_color="@color/cardview_light_background"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+
+            app:layout_constraintTop_toTopOf="@+id/photobutton"
+            app:layout_constraintStart_toStartOf="@+id/photobutton"
+            app:layout_constraintEnd_toEndOf="@+id/photobutton"
+            app:layout_constraintBottom_toBottomOf="@+id/photobutton"/>
 </android.support.constraint.ConstraintLayout>

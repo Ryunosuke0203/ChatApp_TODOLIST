@@ -13,7 +13,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_newpost.*
 import xyz.ryujpn.mymessenger.Adapter.RecyclerAdapter
 
@@ -83,18 +82,6 @@ class NewpostActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        val db = FirebaseFirestore.getInstance()
-        var todoname: String = todoName.text.toString()
-        val post = PostToDo(taskName.text.toString())
-        val data = HashMap<String, PostToDo>()
-        data.put(todoname,post)
-        db.collection("post").add(data)
-            .addOnSuccessListener{
-                // 保存成功
-            }.addOnFailureListener{view ->
-                // 保存失敗
-            }
-
     }
     fun save(){
         var todoname: String = todoName.text.toString()
