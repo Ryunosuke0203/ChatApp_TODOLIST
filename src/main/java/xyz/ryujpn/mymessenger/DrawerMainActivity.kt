@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
+import com.google.firebase.auth.FirebaseAuth
 import xyz.ryujpn.mymessenger.Fragment.HomeFragment
 import xyz.ryujpn.mymessenger.Fragment.SearchFragment
 import xyz.ryujpn.mymessenger.Fragment.SettingFragment
@@ -54,6 +55,15 @@ class DrawerMainActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         val drawView: NavigationView = findViewById(R.id.nav_view_drawer)
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 
+        val uid = FirebaseAuth.getInstance().uid
+        if(uid == null) {
+            val intent = Intent(this, RegisterActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+
+        }
+
+
         supportActionBar!!.setTitle("ホーム")
 
         supportFragmentManager.beginTransaction()
@@ -96,6 +106,7 @@ class DrawerMainActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_settings -> true
+            R.id.action_signout -> true
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -107,7 +118,7 @@ class DrawerMainActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.frameLayout, HomeFragment())
                         .commit()
-                    supportActionBar!!.setTitle("ホーム")
+                    supportActionBar!!.setTitle("ユーザー一覧")
                 }
                 R.id.navigation_setting -> {
                     supportFragmentManager.beginTransaction()
@@ -120,6 +131,12 @@ class DrawerMainActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                     val intent = Intent(this,MyListActivity::class.java)
                     startActivity(intent)
 
+                }
+                R.id.action_signout ->{
+                    FirebaseAuth.getInstance().signOut()
+                    val intent = Intent(this, RegisterActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
                 }
 
                 R.id.nav_share -> {

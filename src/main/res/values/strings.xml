@@ -52,4 +52,5 @@
     <string name="login_failed">"Login failed"</string>
     <string name="signup_login_intent">アカウントをお持ちの方はこちら</string>
     <string name="login_signup_intent">新規登録の方はこちら</string>
+    <string name="action_signout">ログアウト</string>
 </resources>

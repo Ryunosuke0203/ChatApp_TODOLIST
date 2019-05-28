@@ -5,6 +5,8 @@
     <color name="colorPrimaryDark">#79bd9a</color>
     <color name="colorAccent">#D81B60</color>
     <color name="accent">#3b8686</color>
-    <color name= "temp">#a8dba8</color>
-    <color name="temp1">#cff09e</color>
+    <color name= "temp">#E9F8E9</color>
+    <color name="temp1">#B6E6B8</color>
+    <color name="usernametextcolor">#686767</color>
+
 </resources>

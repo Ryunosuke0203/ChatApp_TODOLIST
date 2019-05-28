@@ -1,12 +1,23 @@
 package xyz.ryujpn.mymessenger.Fragment
 
-import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.squareup.picasso.Picasso
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.Item
+import com.xwray.groupie.ViewHolder
+import kotlinx.android.synthetic.main.fragment_talk.*
+import kotlinx.android.synthetic.main.user_row_new_message.view.*
 import xyz.ryujpn.mymessenger.R
+import xyz.ryujpn.mymessenger.User
 
 
 class TalkFragment : Fragment() {
@@ -14,20 +25,60 @@ class TalkFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater!!.inflate(R.layout.fragment_talk, container, false)
     }
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
+
+    override fun onResume() {
+        super.onResume()
+//        val adapter = GroupAdapter<ViewHolder>()
+//        // Version2.3.0 failed
+//        rv_newMessage.adapter = adapter
+        fetchUsers()
     }
-    override fun onDetach() {
-        super.onDetach()
+
+    private fun fetchUsers() {
+        val ref = FirebaseDatabase.getInstance().getReference("/users")
+        ref.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(p0: DataSnapshot) {
+                val adapter = GroupAdapter<ViewHolder>()
+
+                p0.children.forEach {
+                    Log.d("TalkFragment", it.toString())
+
+                    val user = it.getValue(User::class.java)
+                    if (user != null) {
+                        adapter.add(UserItem(user))
+                    }
+                }
+                rv_newMessage.adapter = adapter
+            }
+
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+        })
     }
-    companion object {
-        fun newInstance(): HomeFragment {
-            val fragment = HomeFragment()
-            return fragment
-        }
+
+}
+class UserItem(val user: User): Item<ViewHolder>(){
+    override fun bind(viewHolder: ViewHolder, position: Int) {
+        viewHolder.itemView.username_textview_new_message.text = user.username
+        //ImageView等を指定し、リクエストした画像を当て込む先を指定する。
+        Picasso.get().load(user.profileImageUrl).into(viewHolder.itemView.imageView_chat_to_row)
+    }
+    override fun getLayout(): Int {
+        return R.layout.user_row_new_message
     }
 }
+
+//class CustomAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>{
+//    override fun onBindViewHolder(p0: RecyclerView.ViewHolder, p1: Int) {
+//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+//    }
+//}
