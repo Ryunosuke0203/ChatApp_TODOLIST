@@ -12,6 +12,15 @@
             android:supportsRtl="true"
             android:theme="@style/AppRegister">
         <activity
+                android:name=".ChatLogActivity"
+                android:theme="@style/AppTheme"
+                android:parentActivityName=".DrawerMainActivity"
+                android:windowSoftInputMode="adjustResize"
+
+        >
+
+        </activity>
+        <activity
                 android:name=".ui.login.LoginActivity"
                 android:label="@string/title_activity_login">
         </activity>
@@ -38,7 +47,9 @@
                 android:parentActivityName=".DrawerMainActivity"
                 android:theme="@style/AppTheme">
         </activity>
-        <activity android:name=".RegisterActivity">
+        <activity android:name=".RegisterActivity"
+                  android:windowSoftInputMode="adjustResize">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

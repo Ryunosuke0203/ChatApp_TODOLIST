@@ -1,5 +1,6 @@
 package xyz.ryujpn.mymessenger.Fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.Log
@@ -16,6 +17,7 @@ import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.fragment_talk.*
 import kotlinx.android.synthetic.main.user_row_new_message.view.*
+import xyz.ryujpn.mymessenger.ChatLogActivity
 import xyz.ryujpn.mymessenger.R
 import xyz.ryujpn.mymessenger.User
 
@@ -35,9 +37,8 @@ class TalkFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-//        val adapter = GroupAdapter<ViewHolder>()
-//        // Version2.3.0 failed
-//        rv_newMessage.adapter = adapter
+
+
         fetchUsers()
     }
 
@@ -55,6 +56,11 @@ class TalkFragment : Fragment() {
                         adapter.add(UserItem(user))
                     }
                 }
+                adapter.setOnItemClickListener{ item, view ->
+                    val intent = Intent(view.context, ChatLogActivity::class.java)
+                    startActivity(intent)
+                }
+
                 rv_newMessage.adapter = adapter
             }
 
@@ -76,9 +82,3 @@ class UserItem(val user: User): Item<ViewHolder>(){
         return R.layout.user_row_new_message
     }
 }
-
-//class CustomAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>{
-//    override fun onBindViewHolder(p0: RecyclerView.ViewHolder, p1: Int) {
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-//    }
-//}
