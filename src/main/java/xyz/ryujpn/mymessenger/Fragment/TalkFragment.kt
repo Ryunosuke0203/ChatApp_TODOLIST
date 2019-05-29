@@ -42,6 +42,10 @@ class TalkFragment : Fragment() {
         fetchUsers()
     }
 
+    companion object{
+        val USER_KEY = "USER_KEY"
+    }
+
     private fun fetchUsers() {
         val ref = FirebaseDatabase.getInstance().getReference("/users")
         ref.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -57,7 +61,10 @@ class TalkFragment : Fragment() {
                     }
                 }
                 adapter.setOnItemClickListener{ item, view ->
+                    val userItem = item as UserItem
+
                     val intent = Intent(view.context, ChatLogActivity::class.java)
+                    intent.putExtra(USER_KEY,userItem.user)
                     startActivity(intent)
                 }
 
@@ -73,6 +80,7 @@ class TalkFragment : Fragment() {
 
 }
 class UserItem(val user: User): Item<ViewHolder>(){
+
     override fun bind(viewHolder: ViewHolder, position: Int) {
         viewHolder.itemView.username_textview_new_message.text = user.username
         //ImageView等を指定し、リクエストした画像を当て込む先を指定する。

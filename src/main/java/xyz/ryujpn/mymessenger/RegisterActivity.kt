@@ -109,8 +109,6 @@ class RegisterActivity : AppCompatActivity() {
                 val intent = Intent(this, DrawerMainActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
-
-
             }
             .addOnFailureListener {
                 val intent = Intent(this, LoginActivity::class.java)
@@ -118,7 +116,7 @@ class RegisterActivity : AppCompatActivity() {
             }
     }
 }
-
-class User(val uid: String, val username: String, val profileImageUrl: String){
-    constructor() : this("","", "")
-}
+//
+//class User(val uid: String, val username: String, val profileImageUrl: String){
+//    constructor() : this("","", "")
+//}

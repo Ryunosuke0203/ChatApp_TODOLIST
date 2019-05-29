@@ -16,7 +16,6 @@
                 android:theme="@style/AppTheme"
                 android:parentActivityName=".DrawerMainActivity"
                 android:windowSoftInputMode="adjustResize"
-
         >
 
         </activity>
