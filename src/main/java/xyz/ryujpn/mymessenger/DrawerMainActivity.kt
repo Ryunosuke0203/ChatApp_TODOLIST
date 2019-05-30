@@ -13,9 +13,9 @@ import android.view.Menu
 import android.view.MenuItem
 import com.google.firebase.auth.FirebaseAuth
 import xyz.ryujpn.mymessenger.Fragment.HomeFragment
-import xyz.ryujpn.mymessenger.Fragment.SearchFragment
 import xyz.ryujpn.mymessenger.Fragment.SettingFragment
 import xyz.ryujpn.mymessenger.Fragment.TalkFragment
+import xyz.ryujpn.mymessenger.Fragment.ToDoFragment
 
 class DrawerMainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -27,11 +27,11 @@ class DrawerMainActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                     .commit()
                 supportActionBar!!.setTitle("ホーム")
                 return@OnNavigationItemSelectedListener true
-            }R.id.navigation_search -> {
+            }R.id.navigation_todo -> {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.frameLayout, SearchFragment())
+                .replace(R.id.frameLayout, ToDoFragment())
                 .commit()
-            supportActionBar!!.setTitle("検索")
+            supportActionBar!!.setTitle("Todoリスト")
             return@OnNavigationItemSelectedListener true
         }
             R.id.navigation_talk -> {

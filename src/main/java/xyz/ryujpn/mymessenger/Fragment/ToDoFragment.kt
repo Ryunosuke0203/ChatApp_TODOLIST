@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.google.firebase.auth.FirebaseAuth
 import xyz.ryujpn.mymessenger.R
 
-class SearchFragment : Fragment() {
+class ToDoFragment : Fragment() {
 
     private lateinit var auth: FirebaseAuth
 
@@ -18,7 +18,7 @@ class SearchFragment : Fragment() {
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_search, container, false)
+        return inflater.inflate(R.layout.fragment_todo, container, false)
 
     }
 
@@ -42,8 +42,8 @@ class SearchFragment : Fragment() {
         super.onDetach()
     }
     companion object {
-        fun newInstance(): SearchFragment {
-            val fragment = SearchFragment()
+        fun newInstance(): ToDoFragment {
+            val fragment = ToDoFragment()
             return fragment
         }
     }
