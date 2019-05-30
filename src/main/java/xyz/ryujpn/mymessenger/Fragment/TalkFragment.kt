@@ -24,10 +24,6 @@ import xyz.ryujpn.mymessenger.User
 
 class TalkFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,7 +39,7 @@ class TalkFragment : Fragment() {
     }
 
     companion object{
-        val USER_KEY = "USER_KEY"
+        const val USER_KEY = "USER_KEY"
     }
 
     private fun fetchUsers() {

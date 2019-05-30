@@ -1,8 +1,6 @@
 package xyz.ryujpn.mymessenger.Fragment
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,10 +15,6 @@ class HomeFragment : Fragment() {
 
     private lateinit var auth: FirebaseAuth
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
@@ -28,18 +22,11 @@ class HomeFragment : Fragment() {
 
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-    }
-
     override fun onResume() {
         super.onResume()
-        fab_item.setOnClickListener { view ->
+        fab_item.setOnClickListener {
             val intent= Intent(activity, NewpostActivity::class.java)
-            Snackbar.make(view, "新しいTodoリストを作成しよう！", Snackbar.LENGTH_LONG).show()
             startActivity(intent)
-
         }
 
     }
@@ -52,21 +39,11 @@ class HomeFragment : Fragment() {
 //    }
 
 
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
-    }
-    override fun onDetach() {
-        super.onDetach()
-    }
     companion object {
         fun newInstance(): HomeFragment {
             val fragment = HomeFragment()
             return fragment
         }
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
     }
 
 

@@ -80,13 +80,10 @@ class NewpostActivity : AppCompatActivity() {
 
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
     fun save(){
-        var todoname: String = todoName.text.toString()
+        val todoname: String = todoName.text.toString()
 
-        var postToDo = PostToDo(todoname)
+        val postToDo = PostToDo(todoname)
 
         reference.child("post").child(todoname).setValue(postToDo)
             .addOnSuccessListener {

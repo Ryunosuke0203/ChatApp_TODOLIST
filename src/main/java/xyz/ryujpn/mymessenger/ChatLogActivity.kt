@@ -31,7 +31,6 @@ class ChatLogActivity : AppCompatActivity() {
 
         listenForMessage()
 
-
         sendButton.setOnClickListener {
             Log.d("ChatLogActivity","tap sendButton")
             performSendMessage()
@@ -48,6 +47,7 @@ class ChatLogActivity : AppCompatActivity() {
                 if (chatMessage != null) {
                     if (chatMessage.fromId == FirebaseAuth.getInstance().uid) {
                         adapter.add(ChatItemMine(chatMessage.text))
+
                     }else{
                         adapter.add(ChatItemFriends(chatMessage.text))
                     }
