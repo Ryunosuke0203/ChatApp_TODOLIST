@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        tools:context=".RegisterActivity">
+
+    <Button
+            android:text="@string/login"
+            android:background="@drawable/curve_button"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/LoginButton"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            app:layout_constraintEnd_toEndOf="@+id/LoginpassText"
+            android:textSize="14sp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="@+id/LoginpassText" android:layout_marginTop="40dp"
+            app:layout_constraintTop_toTopOf="@+id/guideline2" app:layout_constraintHorizontal_bias="0.0"/>
+
+    <EditText
+            android:background="@drawable/curve_form"
+            android:layout_width="260dp"
+            android:layout_height="40dp"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:hint="@string/e_mail"
+            android:id="@+id/LoginemailText"
+            android:autofillHints="@string/e_mail"
+            android:contentDescription="@string/e_mail"
+            app:layout_constraintBottom_toTopOf="@+id/LoginpassText"
+            app:layout_constraintEnd_toEndOf="@+id/LoginpassText" android:layout_marginBottom="20dp"
+            app:layout_constraintStart_toStartOf="@+id/LoginpassText" app:layout_constraintHorizontal_bias="0.0"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"/>
+    <EditText
+            android:background="@drawable/curve_form"
+            android:layout_width="260dp"
+            android:layout_height="40dp"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/LoginpassText"
+            android:autofillHints=""
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:contentDescription="@string/password"
+            android:hint="@string/hint_pass" app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.499"/>
+
+    <Button
+            android:text="@string/login_signup_intent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/intentSignup"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="@color/common_google_signin_btn_text_dark_default" android:textSize="10sp"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/LoginButton"
+            app:layout_constraintVertical_bias="0.0"/>
+
+    <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                          android:id="@+id/guideline2" app:layout_constraintGuide_begin="365dp"
+                                          android:orientation="horizontal"/>
+
+</android.support.constraint.ConstraintLayout>
