@@ -25,20 +25,20 @@ class DrawerMainActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.frameLayout, HomeFragment())
                     .commit()
-                supportActionBar!!.setTitle("ホーム")
+                supportActionBar!!.title = "ホーム"
                 return@OnNavigationItemSelectedListener true
             }R.id.navigation_todo -> {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.frameLayout, ToDoFragment())
                 .commit()
-            supportActionBar!!.setTitle("Todoリスト")
+            supportActionBar!!.title = "Todoリスト"
             return@OnNavigationItemSelectedListener true
         }
             R.id.navigation_talk -> {
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.frameLayout, TalkFragment())
                     .commit()
-                supportActionBar!!.setTitle("トーク")
+                supportActionBar!!.title = "トーク"
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -49,10 +49,14 @@ class DrawerMainActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_drawer_main)
+
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
+
         val drawView: NavigationView = findViewById(R.id.nav_view_drawer)
+
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 
         val uid = FirebaseAuth.getInstance().uid
@@ -62,9 +66,7 @@ class DrawerMainActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
             startActivity(intent)
 
         }
-
-
-        supportActionBar!!.setTitle("ホーム")
+        supportActionBar!!.title = "ホーム"
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.frameLayout, HomeFragment())
@@ -78,8 +80,6 @@ class DrawerMainActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
-//        nav_view.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
-
 
         drawView.setNavigationItemSelectedListener(this)
 
@@ -101,9 +101,6 @@ class DrawerMainActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_settings -> true
             R.id.action_signout -> true
@@ -118,13 +115,13 @@ class DrawerMainActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.frameLayout, HomeFragment())
                         .commit()
-                    supportActionBar!!.setTitle("ユーザー一覧")
+                    supportActionBar!!.title = "ホーム"
                 }
                 R.id.navigation_setting -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.frameLayout, SettingFragment())
                         .commit()
-                    supportActionBar!!.setTitle("設定")
+                    supportActionBar!!.title = "設定"
 
                 }
                 R.id.mytodolist -> {
@@ -146,7 +143,7 @@ class DrawerMainActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.frameLayout, TalkFragment())
                         .commit()
-                    supportActionBar!!.setTitle("トーク")
+                    supportActionBar!!.title = "トーク"
                 }
             }
 

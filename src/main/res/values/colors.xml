@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3b8686</color>
-    <color name="baseColor">#79bd9a</color>
     <color name="colorPrimaryDark">#79bd9a</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="accent">#3b8686</color>
-    <color name= "temp">#E9F8E9</color>
-    <color name="temp1">#B6E6B8</color>
-    <color name="usernametextcolor">#686767</color>
+    <color name= "baseBackgroundColor">#E9F8E9</color>
+    <color name="BaseTextColor">#686767</color>
 
 </resources>

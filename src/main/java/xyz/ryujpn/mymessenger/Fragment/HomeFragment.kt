@@ -20,13 +20,6 @@ class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
-
-
-
-        //Snackbar.make(view, "新しいTodoリストを作成しよう！", Snackbar.LENGTH_LONG).show()
-
-
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

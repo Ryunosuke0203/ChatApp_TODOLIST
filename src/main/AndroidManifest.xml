@@ -20,12 +20,12 @@
 
         </activity>
         <activity
-                android:name=".ui.login.LoginActivity"
+                android:name=".LoginActivity"
                 android:label="@string/title_activity_login">
         </activity>
         <activity
                 android:name=".NewpostActivity"
-                android:label="@string/drawer_title_newpost"
+                android:label="@string/drawer_title_NewPost"
                 android:parentActivityName=".DrawerMainActivity"
                 android:theme="@style/AppTheme"
                 android:windowSoftInputMode="adjustResize">
@@ -36,13 +36,8 @@
                 android:theme="@style/Newpost">
         </activity>
         <activity
-                android:name=".MenuActivity"
-                android:label="@string/home_action"
-                android:theme="@style/AppTheme">
-        </activity>
-        <activity
                 android:name=".MyListActivity"
-                android:label="@string/mylistactivity"
+                android:label="@string/MyTodoListActivity"
                 android:parentActivityName=".DrawerMainActivity"
                 android:theme="@style/AppTheme">
         </activity>

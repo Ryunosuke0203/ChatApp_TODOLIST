@@ -7,11 +7,11 @@
         <item
                 android:id="@+id/navigation_home"
                 android:icon="@drawable/ic_home_black_24dp"
-                android:title="@string/drawer_title_home"/>
+                android:title="@string/title_home"/>
         <item
                 android:id="@+id/mytodolist"
                 android:icon="@drawable/ic_format_list_bulleted_black_24dp"
-                android:title="@string/drawer_menu_list"/>
+                android:title="@string/title_MyTodoList"/>
 
 
     </group>
@@ -21,12 +21,12 @@
             <item
                     android:id="@+id/nav_talk"
                     android:icon="@drawable/ic_people_black_24dp"
-                    android:title="@string/drawer_menu_talk"/>
+                    android:title="@string/title_talk"/>
 
             <item
                     android:id="@+id/nav_share"
                     android:icon="@drawable/ic_menu_share"
-                    android:title="@string/menu_share"/>
+                    android:title="@string/title_share"/>
 
         </menu>
     </item>
@@ -35,7 +35,7 @@
             <item
                     android:id="@+id/navigation_setting"
                     android:icon="@drawable/ic_settings_black_24dp"
-                    android:title="@string/drawer_title_setting"/>
+                    android:title="@string/title_setting"/>
         </menu>
     </item>
 
