@@ -8,6 +8,7 @@
         android:layout_height="match_parent"
         tools:context=".NewpostActivity"
         android:orientation="vertical"
+        android:background="@color/baseBackgroundColor"
         android:fitsSystemWindows="true"
 >
 
